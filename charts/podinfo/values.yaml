@@ -22,7 +22,7 @@ h2c:
   enabled: false
 
 image:
-  repository: ghcr.io/stefanprodan/podinfo
+  repository: eu.gcr.io/container-registry-test-303518/podinfo
   tag: 5.1.4
   pullPolicy: IfNotPresent
 
