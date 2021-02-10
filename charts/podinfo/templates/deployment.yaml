@@ -30,13 +30,13 @@ spec:
       {{- if .Values.serviceAccount.enabled }}
       serviceAccountName: {{ template "podinfo.serviceAccountName" . }}
       {{- end }}
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if (or .Values.service.hostPort .Values.tls.hostPort) }}
-          imagePullSecrets:
-            - name: regcred
           securityContext:
             allowPrivilegeEscalation: true
             capabilities:
